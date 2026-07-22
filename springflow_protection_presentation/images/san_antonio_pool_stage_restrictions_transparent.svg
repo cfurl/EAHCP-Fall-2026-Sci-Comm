@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1120" viewBox="0 0 760 1120">
+<text x="22" y="42" font-family="Aptos, Arial, sans-serif" font-size="24" font-weight="700" fill="#63747A" text-anchor="start" opacity="1.0">TRIGGER THRESHOLDS</text>
+<text x="738" y="42" font-family="Aptos, Arial, sans-serif" font-size="24" font-weight="700" fill="#63747A" text-anchor="end" opacity="1.0">PUMPING REDUCTION</text>
+<line x1="22" y1="58" x2="738" y2="58" stroke="#A69E8F" stroke-width="2" opacity="0.6"/>
+<rect x="22" y="78" width="716" height="148" rx="18" fill="#F7F5F0" fill-opacity="0.93" stroke="#D5CFC2" stroke-width="2"/>
+<rect x="40" y="96" width="142" height="48" rx="14" fill="#6DB6C4" fill-opacity="1.0"/>
+<text x="111" y="129" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">STABLE</text>
+<rect x="590" y="96" width="126" height="48" rx="14" fill="#6DB6C4" fill-opacity="1.0"/>
+<text x="653" y="130" font-family="Aptos, Arial, sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">0%</text>
+<text x="42" y="178" font-family="Aptos, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B3C5D" text-anchor="start" opacity="1.0">J-17 ≥ 660 ft amsl</text>
+<text x="42" y="212" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="400" fill="#24343B" text-anchor="start" opacity="1.0">Comal ≥ 225 cfs   •   San Marcos ≥ 96 cfs</text>
+<rect x="22" y="238" width="716" height="148" rx="18" fill="#F7F5F0" fill-opacity="0.93" stroke="#D5CFC2" stroke-width="2"/>
+<rect x="40" y="256" width="142" height="48" rx="14" fill="#7EA56F" fill-opacity="1.0"/>
+<text x="111" y="289" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">STAGE 1</text>
+<rect x="590" y="256" width="126" height="48" rx="14" fill="#7EA56F" fill-opacity="1.0"/>
+<text x="653" y="290" font-family="Aptos, Arial, sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">20%</text>
+<text x="42" y="338" font-family="Aptos, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B3C5D" text-anchor="start" opacity="1.0">J-17 &lt; 660 ft amsl</text>
+<text x="42" y="372" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="400" fill="#24343B" text-anchor="start" opacity="1.0">Comal &lt; 225 cfs   •   San Marcos &lt; 96 cfs</text>
+<rect x="22" y="398" width="716" height="148" rx="18" fill="#F7F5F0" fill-opacity="0.93" stroke="#D5CFC2" stroke-width="2"/>
+<rect x="40" y="416" width="142" height="48" rx="14" fill="#C8AA45" fill-opacity="1.0"/>
+<text x="111" y="449" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">STAGE 2</text>
+<rect x="590" y="416" width="126" height="48" rx="14" fill="#C8AA45" fill-opacity="1.0"/>
+<text x="653" y="450" font-family="Aptos, Arial, sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">30%</text>
+<text x="42" y="498" font-family="Aptos, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B3C5D" text-anchor="start" opacity="1.0">J-17 &lt; 650 ft amsl</text>
+<text x="42" y="532" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="400" fill="#24343B" text-anchor="start" opacity="1.0">Comal &lt; 200 cfs   •   San Marcos &lt; 80 cfs</text>
+<rect x="22" y="558" width="716" height="148" rx="18" fill="#F7F5F0" fill-opacity="0.93" stroke="#D5CFC2" stroke-width="2"/>
+<rect x="40" y="576" width="142" height="48" rx="14" fill="#D58A48" fill-opacity="1.0"/>
+<text x="111" y="609" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">STAGE 3</text>
+<rect x="590" y="576" width="126" height="48" rx="14" fill="#D58A48" fill-opacity="1.0"/>
+<text x="653" y="610" font-family="Aptos, Arial, sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">35%</text>
+<text x="42" y="658" font-family="Aptos, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B3C5D" text-anchor="start" opacity="1.0">J-17 &lt; 640 ft amsl</text>
+<text x="42" y="692" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="400" fill="#24343B" text-anchor="start" opacity="1.0">Comal &lt; 150 cfs   •   San Marcos: N/A</text>
+<rect x="22" y="718" width="716" height="148" rx="18" fill="#F7F5F0" fill-opacity="0.93" stroke="#D5CFC2" stroke-width="2"/>
+<rect x="40" y="736" width="142" height="48" rx="14" fill="#C65D4A" fill-opacity="1.0"/>
+<text x="111" y="769" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">STAGE 4</text>
+<rect x="590" y="736" width="126" height="48" rx="14" fill="#C65D4A" fill-opacity="1.0"/>
+<text x="653" y="770" font-family="Aptos, Arial, sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">40%</text>
+<text x="42" y="818" font-family="Aptos, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B3C5D" text-anchor="start" opacity="1.0">J-17 &lt; 630 ft amsl</text>
+<text x="42" y="852" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="400" fill="#24343B" text-anchor="start" opacity="1.0">Comal &lt; 100 cfs   •   San Marcos: N/A</text>
+<rect x="22" y="878" width="716" height="148" rx="18" fill="#F7F5F0" fill-opacity="0.93" stroke="#D5CFC2" stroke-width="2"/>
+<rect x="40" y="896" width="142" height="48" rx="14" fill="#8667A8" fill-opacity="1.0"/>
+<text x="111" y="929" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">STAGE 5</text>
+<rect x="590" y="896" width="126" height="48" rx="14" fill="#8667A8" fill-opacity="1.0"/>
+<text x="653" y="930" font-family="Aptos, Arial, sans-serif" font-size="29" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="1.0">44%</text>
+<text x="42" y="978" font-family="Aptos, Arial, sans-serif" font-size="28" font-weight="700" fill="#0B3C5D" text-anchor="start" opacity="1.0">J-17 &lt; 625 ft amsl</text>
+<text x="42" y="1012" font-family="Aptos, Arial, sans-serif" font-size="25" font-weight="400" fill="#24343B" text-anchor="start" opacity="1.0">Comal &lt; 45/40* cfs   •   San Marcos: N/A</text>
+<text x="24" y="1072" font-family="Aptos, Arial, sans-serif" font-size="19" font-weight="400" fill="#63747A" text-anchor="start" opacity="1.0">* Comal Stage 5 threshold is shown as 45/40 cfs in the EAA table.</text>
+</svg>
