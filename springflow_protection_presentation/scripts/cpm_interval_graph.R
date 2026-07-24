@@ -68,6 +68,13 @@ source(theme_file)
 start_date <- as.Date("2008-01-01")
 end_date   <- as.Date("2025-12-31")
 
+# Explicit annual breaks stop at 2025 so a 2026 label is never drawn.
+year_breaks <- seq(
+  from = as.Date("2008-01-01"),
+  to   = as.Date("2025-01-01"),
+  by   = "1 year"
+)
+
 # -----------------------------------------------------------------------------
 # Read historic daily mean springflow
 # -----------------------------------------------------------------------------
@@ -141,11 +148,14 @@ cpm_intervals <- read_csv(
       startdate,
       start_date
     ),
-    # Add one day so the final date in each inclusive interval is fully shaded.
+    
+    # Add one day so inclusive intervals shade through their listed end date.
+    # Cap the rectangle at 2025-12-31 so the plot does not extend into 2026.
     enddate = pmin(
-      enddate + 1,
-      end_date + 1
+      enddate + days(1),
+      end_date
     ),
+    
     stage = factor(
       stage,
       levels = 1:5,
@@ -193,8 +203,6 @@ spring_colors <- c(
 )
 
 # Stage colors progress from cool/low-severity to warm/high-severity.
-# Stage 3, 4, and 5 retain the amber, coral, and purple language used in
-# the presentation's CPM tables.
 stage_colors <- c(
   "Stage 1" = EAHCP_COLORS[["flow"]],
   "Stage 2" = "#8FAF7D",
@@ -209,7 +217,7 @@ stage_colors <- c(
 
 springflow_plot <- ggplot() +
   
-  # CPM intervals are drawn first so the daily springflow lines remain clear.
+  # CPM intervals are drawn first so the springflow lines remain visible.
   geom_rect(
     data = cpm_intervals,
     aes(
@@ -220,7 +228,7 @@ springflow_plot <- ggplot() +
       fill = stage
     ),
     inherit.aes = FALSE,
-    alpha = 0.28,
+    alpha = 0.30,
     color = NA
   ) +
   
@@ -265,7 +273,7 @@ springflow_plot <- ggplot() +
       start_date,
       end_date
     ),
-    date_breaks = "1 year",
+    breaks = year_breaks,
     date_labels = "%Y",
     expand = expansion(
       mult = c(0, 0)
@@ -301,7 +309,7 @@ springflow_plot <- ggplot() +
       nrow = 1,
       byrow = TRUE,
       override.aes = list(
-        alpha = 0.42
+        alpha = 0.60
       )
     )
   ) +
