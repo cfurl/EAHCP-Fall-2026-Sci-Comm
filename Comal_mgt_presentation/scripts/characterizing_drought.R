@@ -4,7 +4,7 @@
 # Daily springflow -> monthly means -> rolling monthly means
 #
 # Rolling windows:
-#   3, 6, 9, 12, 18, 24 months
+#   3, 6, 9, 12, 18, 24, 36, 48, 60 months
 #
 # Special data rule:
 #   San Marcos 1956 is retained even though it is a partial
@@ -89,13 +89,18 @@ min_days_valid_year <- 360
 min_month_coverage <- 0.90
 
 
+# Rolling-average periods
 rolling_windows <- c(
+  1,
   3,
   6,
   9,
   12,
   18,
-  24
+  24,
+  36,
+  48,
+  60
 )
 
 
@@ -226,7 +231,6 @@ yearly_completeness <- daily |>
     .groups = "drop"
   ) |>
   
-  # Mark explicit exceptions
   left_join(
     forced_year_inclusions,
     by = c(
@@ -251,8 +255,6 @@ yearly_completeness <- daily |>
       year ==
       year(analysis_end_date),
     
-    # Current year is only expected to extend through
-    # July 31, 2026.
     expected_days_available =
       if_else(
         is_current_year,
@@ -276,20 +278,16 @@ yearly_completeness <- daily |>
     
     year_used = case_when(
       
-      # Explicit scientific/data-history exception
       forced_include ~
         TRUE,
       
-      # Current partial calendar year
       is_current_year ~
         TRUE,
       
-      # Normal historical completeness rule
       observed_days >=
         min_days_valid_year ~
         TRUE,
       
-      # Otherwise exclude
       TRUE ~
         FALSE
     ),
@@ -465,13 +463,6 @@ monthly <- daily |>
         "PARTIAL, LOW COVERAGE"
     ),
     
-    
-    # Month must belong to a retained year AND have
-    # adequate daily coverage.
-    #
-    # Thus:
-    # San Marcos May 1956 is retained in the monthly
-    # output but is NOT used in rolling calculations.
     month_usable_for_rolling =
       coalesce(
         year_used,
@@ -1044,22 +1035,25 @@ write_csv(
 
 
 # ------------------------------------------------------------
-# 10 LOWEST INDIVIDUAL ROLLING PERIODS
+# 50 LOWEST INDIVIDUAL ROLLING PERIODS
 #
 # IMPORTANT:
 # These are overlapping rolling windows.
 #
 # Therefore several rows may represent the same drought event.
+#
+# Returns the 50 lowest rolling-average observations for
+# EACH station and EACH rolling time interval.
 # ------------------------------------------------------------
 
-driest_10 <- rolling_ranked |>
+driest_50 <- rolling_ranked |>
   group_by(
     station,
     window_months
   ) |>
   slice_min(
     rolling_mean_cfs,
-    n = 10,
+    n = 50,
     with_ties = FALSE
   ) |>
   ungroup() |>
@@ -1071,13 +1065,12 @@ driest_10 <- rolling_ranked |>
 
 
 write_csv(
-  driest_10,
+  driest_50,
   file.path(
     output_dir,
-    "05_driest_10_rolling_periods.csv"
+    "05_driest_50_rolling_periods.csv"
   )
 )
-
 
 # ------------------------------------------------------------
 # ANNUAL MINIMUM ROLLING VALUE
