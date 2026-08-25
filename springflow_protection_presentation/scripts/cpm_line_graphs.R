@@ -144,35 +144,17 @@ series_colors <- c(
   "pumped"        = EAHCP_COLORS[["spring"]]
 )
 
-# Permitted quantities are shown as dashed limits.
-# Actual pumped is shown as a solid observed line.
 series_linetypes <- c(
   "permitted_amt" = "longdash",
   "after_cpm"     = "22",
   "pumped"        = "solid"
 )
 
-minimum_year <- min(
-  pumping_data$year,
-  na.rm = TRUE
-)
-
-maximum_year <- max(
-  pumping_data$year,
-  na.rm = TRUE
-)
-
-year_breaks <- sort(
-  unique(
-    c(
-      seq(
-        minimum_year,
-        maximum_year,
-        by = 2
-      ),
-      maximum_year
-    )
-  )
+# Clean x-axis labels:
+# every 2 years through 2022, then 2025 as the final year
+year_breaks <- c(
+  seq(2008, 2022, by = 2),
+  2025
 )
 
 # =============================================================================
@@ -248,7 +230,8 @@ graph_1 <- ggplot(
     name = NULL
   ) +
   scale_x_continuous(
-    breaks = year_breaks
+    breaks = year_breaks,
+    limits = c(2008, 2025)
   ) +
   scale_y_continuous(
     labels = label_comma(
@@ -326,9 +309,6 @@ ggsave(
 # =============================================================================
 # GRAPH 2
 # Two permit types x two pools
-#
-# The two permit-type rows have separate legends so that each legend can use
-# the full Municipal and Industrial or Irrigation wording requested.
 # =============================================================================
 
 pool_type_data <- pumping_data %>%
@@ -429,7 +409,8 @@ make_pool_type_row <- function(
       name = NULL
     ) +
     scale_x_continuous(
-      breaks = year_breaks
+      breaks = year_breaks,
+      limits = c(2008, 2025)
     ) +
     scale_y_continuous(
       labels = label_comma(

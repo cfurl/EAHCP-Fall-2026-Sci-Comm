@@ -68,11 +68,13 @@ source(theme_file)
 start_date <- as.Date("2008-01-01")
 end_date   <- as.Date("2025-12-31")
 
-# Explicit annual breaks stop at 2025 so a 2026 label is never drawn.
-year_breaks <- seq(
-  from = as.Date("2008-01-01"),
-  to   = as.Date("2025-01-01"),
-  by   = "1 year"
+# Clean x-axis labeling:
+# every 2 years through 2022, then 2025 as the final year.
+year_breaks <- as.Date(
+  c(
+    paste0(seq(2008, 2022, by = 2), "-01-01"),
+    "2025-01-01"
+  )
 )
 
 # -----------------------------------------------------------------------------
@@ -150,7 +152,7 @@ cpm_intervals <- read_csv(
     ),
     
     # Add one day so inclusive intervals shade through their listed end date.
-    # Cap the rectangle at 2025-12-31 so the plot does not extend into 2026.
+    # Cap at 2025-12-31 so the plot does not extend into 2026.
     enddate = pmin(
       enddate + days(1),
       end_date
@@ -202,7 +204,6 @@ spring_colors <- c(
   "San Marcos" = EAHCP_COLORS[["spring"]]
 )
 
-# Stage colors progress from cool/low-severity to warm/high-severity.
 stage_colors <- c(
   "Stage 1" = EAHCP_COLORS[["flow"]],
   "Stage 2" = "#8FAF7D",
@@ -217,7 +218,7 @@ stage_colors <- c(
 
 springflow_plot <- ggplot() +
   
-  # CPM intervals are drawn first so the springflow lines remain visible.
+  # CPM intervals drawn first so springflow remains visible.
   geom_rect(
     data = cpm_intervals,
     aes(
@@ -327,27 +328,33 @@ springflow_plot <- ggplot() +
     legend.justification = "center",
     legend.box = "vertical",
     legend.box.just = "center",
+    
     legend.title = element_text(
       face = "bold",
       size = 10.8,
       color = EAHCP_COLORS[["ink"]]
     ),
+    
     legend.text = element_text(
       size = 10.8,
       color = EAHCP_COLORS[["ink"]]
     ),
+    
     legend.key.width = unit(
       0.82,
       "cm"
     ),
+    
     legend.key.height = unit(
       0.38,
       "cm"
     ),
+    
     legend.spacing.x = unit(
       0.18,
       "cm"
     ),
+    
     legend.spacing.y = unit(
       0.08,
       "cm"
@@ -356,13 +363,14 @@ springflow_plot <- ggplot() +
     axis.text.x = element_text(
       size = 10,
       face = "bold",
-      angle = 45,
-      hjust = 1,
-      vjust = 1
+      angle = 0,
+      hjust = 0.5
     ),
+    
     axis.text.y = element_text(
       size = 10.5
     ),
+    
     axis.title = element_text(
       size = 12,
       face = "bold"
@@ -381,7 +389,10 @@ springflow_plot <- ggplot() +
     )
   )
 
-# Display in the plotting window.
+# -----------------------------------------------------------------------------
+# Display
+# -----------------------------------------------------------------------------
+
 print(springflow_plot)
 
 # -----------------------------------------------------------------------------
